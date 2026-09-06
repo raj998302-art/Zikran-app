@@ -55,5 +55,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: output/ZIKRAN-v5.0.apk
+          overwrite_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
