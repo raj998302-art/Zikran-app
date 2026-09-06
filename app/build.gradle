@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+}
+
+// stable signing so users can install updates without uninstalling
+def keystoreProperties = new Properties()
+def keystoreFile = rootProject.file("keystore/keystore.properties")
+if (keystoreFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystoreFile))
+}
+
+android {
+    namespace 'com.zikran.app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.zikran.app"
+        minSdk 21
+        targetSdk 35
+        versionCode 5
+        versionName "5.0"
+    }
+
+    signingConfigs {
+        release {
+            storeFile rootProject.file(keystoreProperties['storeFile'] ?: 'keystore/zikran-release.jks')
+            storePassword keystoreProperties['storePassword'] ?: System.getenv('ZK_STORE_PASSWORD')
+            keyAlias keystoreProperties['keyAlias'] ?: System.getenv('ZK_KEY_ALIAS')
+            keyPassword keystoreProperties['keyPassword'] ?: System.getenv('ZK_KEY_PASSWORD')
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.core:core:1.13.1'
+    constraints {
+        implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22') {
+            because 'kotlin-stdlib 1.8.20+ includes kotlin-stdlib-jdk7'
+        }
+        implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22') {
+            because 'kotlin-stdlib 1.8.20+ includes kotlin-stdlib-jdk8'
+        }
+    }
+}

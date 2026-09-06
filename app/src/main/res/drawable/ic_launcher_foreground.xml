@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- golden crescent (cut by bg-colored circle) -->
+    <path
+        android:fillColor="#E2C46B"
+        android:pathData="M54,35 A21,21 0 1,0 54,77 A21,21 0 1,0 54,35 Z M60.5,40.5 A16.5,16.5 0 1,1 60.5,71.5 A16.5,16.5 0 1,1 60.5,40.5 Z"
+        android:fillType="evenOdd"/>
+    <!-- sparkle star in the crescent opening -->
+    <path
+        android:fillColor="#F5E8C0"
+        android:pathData="M70,42 L72.4,48.1 L78.5,50.5 L72.4,52.9 L70,59 L67.6,52.9 L61.5,50.5 L67.6,48.1 Z"/>
+    <!-- tasbih beads arc -->
+    <path
+        android:fillColor="#BF9B45"
+        android:pathData="M40,74 A22,22 0 0,0 68,74"
+        android:strokeColor="#BF9B45"
+        android:strokeWidth="0"/>
+    <path android:fillColor="#BF9B45" android:pathData="M39,71 m-2.6,0 a2.6,2.6 0 1,1 5.2,0 a2.6,2.6 0 1,1 -5.2,0 Z"/>
+    <path android:fillColor="#BF9B45" android:pathData="M45,76 m-2.4,0 a2.4,2.4 0 1,1 4.8,0 a2.4,2.4 0 1,1 -4.8,0 Z"/>
+    <path android:fillColor="#BF9B45" android:pathData="M52,78.5 m-2.2,0 a2.2,2.2 0 1,1 4.4,0 a2.2,2.2 0 1,1 -4.4,0 Z"/>
+</vector>
